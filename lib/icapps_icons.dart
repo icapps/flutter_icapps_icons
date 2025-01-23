@@ -1,7 +1,17 @@
 library icapps_icons;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:flutter/widgets.dart';
+
+class _IcappsIcons extends IconData {
+  const _IcappsIcons(int codePoint)
+      : super(
+          codePoint,
+          fontFamily: 'icappsIcons',
+        );
+}
+
+class IcappsIcons {
+  IcappsIcons._();
+
+  static const addIcon = _IcappsIcons(0xe800);
 }
