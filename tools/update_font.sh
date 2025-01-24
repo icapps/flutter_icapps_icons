@@ -5,6 +5,7 @@ then
   cd ..
 fi
 
+npx reorient icons/*.svg
 rm -rf lib/fonts/icappsIcons.ttf
 npx fantasticon icons --output ./lib/fonts -t ttf --name icappsIcons -g ts
 rm -rf lib/fonts/icappsIcons.ts
