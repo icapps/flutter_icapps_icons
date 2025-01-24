@@ -9,7 +9,7 @@ flutter:
     fonts:
     - family: icappsIcons
         fonts:
-        - asset: packages/icapps_icons/lib/fonts/icappsIcons.ttf
+        - asset: packages/icapps_icons/fonts/icappsIcons.ttf
 ```
 
 ## Usage
