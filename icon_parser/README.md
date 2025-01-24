@@ -11,4 +11,4 @@ To get started install the required tools to run the script, these are:
 
 ## Usage
 
-To use the tool all you have to do is make sure all your icons are in the icons folder. After that run the update_font.sh command from the root (./tools/update_font.sh). That's it, the tool will now update the font with the newly added icons.
+To use the tool all you have to do is make sure all your icons are in the icons folder. After that run the update_font.sh command from the root (./tool/update_font.sh). That's it, the tool will now update the font with the newly added icons.
