@@ -12,8 +12,3 @@ test/
 build/
 icon_parser/
 icons/
-.DS_Store
-.idea/libraries/Dart_SDK.xml
-.idea/modules.xml
-.idea/workspace.xml
-icapps_icons.iml
