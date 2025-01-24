@@ -2,7 +2,7 @@ A package that adds the ability to use all the icons of the icapps iconic librar
 
 ## Getting started
 
-All you have to do to get started is to add this peace of coude below to your pubspec.yaml
+All you have to do to get started is to add this piece of code below to your pubspec.yaml
 
 ```yaml
 flutter:
