@@ -62,7 +62,22 @@ void _createIconsFile(Map<String, String> mappings) {
               ),
           ),
         ),
-      ),
+      )
+      ..fields.add(Field(
+        (b) => b
+          ..name = 'allIcons'
+          ..type = refer('List<IcappsIconData>')
+          ..static = true
+          ..modifier = FieldModifier.constant
+          ..assignment = literalList(
+            mappings.entries
+                .map(
+                  (e) => refer('IcappsIconData(${e.value})'),
+                )
+                .toList()
+                .reversed,
+          ).code,
+      )),
   );
 
   final fileContent = Library(

@@ -10,15 +10,23 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: SafeArea(
           child: Center(
-            child: Column(
-              children: [
-                Icon(IcappsIcons.alarm),
-                Icon(IcappsIcons.zeppelinFilled2),
-              ],
+            child: GridView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 32),
+              itemCount: IcappsIcons.allIcons.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+              itemBuilder: (context, index) => Column(
+                children: [
+                  Icon(
+                    IcappsIcons.allIcons[index],
+                    size: 48,
+                  ),
+                  Text(IcappsIcons.allIcons[index].codePoint.toString()),
+                ],
+              ),
             ),
           ),
         ),
