@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icapps_icons/icapps_icons.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,7 +16,7 @@ class MainApp extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Icon(IconData(0xe800, fontFamily: 'icappsIcons')),
+                Icon(IcappsIcons.alarm),
                 Icon(IconData(0xe801, fontFamily: 'icappsIcons')),
               ],
             ),

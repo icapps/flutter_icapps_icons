@@ -1,12 +1,16 @@
 import 'dart:io';
+
+import 'package:code_builder/code_builder.dart';
+import 'package:dart_style/dart_style.dart';
 import 'package:xml/xml.dart';
 
 void main() async {
-  final ttxPath = '../fonts/icappsIcons.ttx'; // Update this path
+  const ttxPath = 'lib/fonts/icappsIcons.ttx'; // Update this path
   final file = File(ttxPath);
 
   // Ensure the file exists
   if (!file.existsSync()) {
+    // ignore: avoid_print
     print('TTX file not found at $ttxPath');
     return;
   }
@@ -31,17 +35,40 @@ void main() async {
     // We only proceed if both are non-null and codeStr starts with "0x" (hex)
     if (codeStr != null && glyphName != null && codeStr.startsWith('0x')) {
       // Strip off the "0x", parse hex, then convert to uppercase string
-      final codePointValue = int.tryParse(codeStr.substring(2), radix: 16);
-      if (codePointValue != null) {
-        final codePointHex = codePointValue.toRadixString(16).toUpperCase();
-        glyphMappings[glyphName] = 'U+$codePointHex';
-      }
+      final codePointValue = codeStr;
+      glyphMappings[glyphName] = codePointValue;
     }
   }
+  _createIconsFile(glyphMappings);
+}
 
-  // Print the collected mappings:
-  print('Glyph Name -> Codepoint');
-  glyphMappings.forEach((glyphName, codepoint) {
-    print('$glyphName -> $codepoint');
-  });
+void _createIconsFile(Map<String, String> mappings) {
+  final emitter = DartEmitter();
+
+  final iconsClass = Class(
+    (b) => b
+      ..name = 'IcappsIcons'
+      ..fields.addAll(
+        mappings.entries.map(
+          (e) => Field(
+            (b) => b
+              ..name = e.key
+              ..type = refer('IcappsIconData')
+              ..static = true
+              ..modifier = FieldModifier.constant
+              ..assignment = Code(
+                'IcappsIconData(${e.value})',
+              ),
+          ),
+        ),
+      ),
+  );
+
+  final fileContent = Library(
+    (b) => b
+      ..body.add(iconsClass)
+      ..directives.add(Directive.import('package:icapps_icons/icapps_icon_data.dart')),
+  ).accept(emitter);
+
+  File('../lib/icapps_icons.dart').writeAsStringSync(DartFormatter().format(fileContent.toString()));
 }
