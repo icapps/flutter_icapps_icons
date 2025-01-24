@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
             child: Column(
               children: [
                 Icon(IcappsIcons.alarm),
-                Icon(IconData(0xe801, fontFamily: 'icappsIcons')),
+                Icon(IcappsIcons.zeppelinFilled2),
               ],
             ),
           ),

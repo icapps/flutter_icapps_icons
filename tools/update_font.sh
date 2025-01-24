@@ -5,6 +5,9 @@ then
   cd ..
 fi
 
+rm -rf lib/fonts/icappsIcons.ttf
+npx fantasticon icons --output ./lib/fonts -t ttf --name icappsIcons -g ts
+rm -rf lib/fonts/icappsIcons.ts
 cd lib/fonts
 ttx icappsIcons.ttf
 cd ../..

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
+import 'package:icon_parser/case_util.dart';
 import 'package:xml/xml.dart';
 
 void main() async {
@@ -52,7 +53,7 @@ void _createIconsFile(Map<String, String> mappings) {
         mappings.entries.map(
           (e) => Field(
             (b) => b
-              ..name = e.key
+              ..name = CaseUtil(e.key).camelCase
               ..type = refer('IcappsIconData')
               ..static = true
               ..modifier = FieldModifier.constant
@@ -70,5 +71,5 @@ void _createIconsFile(Map<String, String> mappings) {
       ..directives.add(Directive.import('package:icapps_icons/icapps_icon_data.dart')),
   ).accept(emitter);
 
-  File('../lib/icapps_icons.dart').writeAsStringSync(DartFormatter().format(fileContent.toString()));
+  File('lib/icapps_icons.dart').writeAsStringSync(DartFormatter().format(fileContent.toString()));
 }
