@@ -12,7 +12,7 @@ echo "--- Removing old previews... ---"
 rm -rf ./previews/*
 
 echo "--- Creating new previews... ---"
-magick mogrify -background none -format png -resize 32x32 -path ./previews icons/*.svg
+magick mogrify -density 400 -format png -resize 32x32 -path ./previews icons/*.svg
 
 echo "--- Removing old font... ---"
 rm -rf lib/fonts/icappsIcons.ttf
