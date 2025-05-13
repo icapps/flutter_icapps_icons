@@ -1,3 +1,7 @@
+## [1.3.0] - 2025-05-13
+
+* Added previews for icons
+
 ## [1.2.0] - 2025-05-13
 
 * Updated icapps icons to version V2.4 of the icon library

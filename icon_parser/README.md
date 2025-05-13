@@ -8,6 +8,7 @@ To get started install the required tools to run the script, these are:
 - svg-reorient: https://www.npmjs.com/package/svg-reorient?activeTab=readme
 - fantasticon: https://www.npmjs.com/package/fantasticon?activeTab=readme
 - fonttools: https://github.com/fonttools/fonttools
+- imagemagick: brew install imagemagick
 
 ## Usage
 

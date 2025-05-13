@@ -50,6 +50,7 @@ void _createIconsFile(Map<String, String> mappings) {
               ..type = refer('IcappsIconData')
               ..static = true
               ..modifier = FieldModifier.constant
+              ..docs.add("/// ![image](https://icapps.github.io/flutter_icapps_icons/previews/${e.key}.png)")
               ..assignment = Code(
                 'IcappsIconData(${e.value})',
               ),
