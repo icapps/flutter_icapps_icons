@@ -1,3 +1,7 @@
+## [1.4.0] - 2025-05-19
+
+* Fixed icon names
+
 ## [1.3.0] - 2025-05-13
 
 * Added previews for icons
