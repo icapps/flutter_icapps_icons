@@ -1,3 +1,7 @@
+## [1.5.0] - 2025-08-21
+
+* Updated icapps icons to version V2.9 of the icon library
+
 ## [1.4.0] - 2025-05-19
 
 * Fixed icon names
