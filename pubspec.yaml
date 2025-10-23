@@ -1,6 +1,6 @@
 name: icapps_icons
 description: "A package that cointains the icapps icons."
-version: 1.5.1
+version: 1.5.2
 homepage: https://github.com/icapps/flutter_icapps_icons
 
 environment:

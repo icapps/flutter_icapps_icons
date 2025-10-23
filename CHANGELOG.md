@@ -1,3 +1,7 @@
+## [1.5.2] - 2025-10-23
+
+* Updated icapps icons to version V2.13 of the icon library
+
 ## [1.5.1] - 2025-08-22
 
 * Added new id card icon
