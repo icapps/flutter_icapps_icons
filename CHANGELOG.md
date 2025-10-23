@@ -1,3 +1,7 @@
+## [1.5.3] - 2025-10-23
+
+* Added new user card icon
+
 ## [1.5.2] - 2025-10-23
 
 * Updated icapps icons to version V2.13 of the icon library
