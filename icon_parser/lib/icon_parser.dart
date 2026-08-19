@@ -5,6 +5,11 @@ import 'package:dart_style/dart_style.dart';
 import 'package:icon_parser/case_util.dart';
 import 'package:xml/xml.dart';
 
+const fontFamily = 'icappsIcons';
+
+String _iconData(String codePoint) =>
+    "IconData($codePoint, fontFamily: '$fontFamily')";
+
 void main() async {
   const ttxPath = 'lib/fonts/icappsIcons.ttx'; // Update this path
   final file = File(ttxPath);
@@ -47,12 +52,13 @@ void _createIconsFile(Map<String, String> mappings) {
           (e) => Field(
             (b) => b
               ..name = CaseUtil(e.key).camelCase
-              ..type = refer('IcappsIconData')
+              ..type = refer('IconData')
               ..static = true
               ..modifier = FieldModifier.constant
-              ..docs.add("/// ![image](https://icapps.github.io/flutter_icapps_icons/previews/${e.key}.png)")
+              ..docs.add(
+                  "/// ![image](https://icapps.github.io/flutter_icapps_icons/previews/${e.key}.png)")
               ..assignment = Code(
-                'IcappsIconData(${e.value})',
+                _iconData(e.value),
               ),
           ),
         ),
@@ -60,13 +66,13 @@ void _createIconsFile(Map<String, String> mappings) {
       ..fields.add(Field(
         (b) => b
           ..name = 'allIcons'
-          ..type = refer('List<IcappsIconData>')
+          ..type = refer('List<IconData>')
           ..static = true
           ..modifier = FieldModifier.constant
           ..assignment = literalList(
             mappings.entries
                 .map(
-                  (e) => refer('IcappsIconData(${e.value})'),
+                  (e) => refer(_iconData(e.value)),
                 )
                 .toList()
                 .reversed,
@@ -77,8 +83,9 @@ void _createIconsFile(Map<String, String> mappings) {
   final fileContent = Library(
     (b) => b
       ..body.add(iconsClass)
-      ..directives.add(Directive.import('package:icapps_icons/icapps_icon_data.dart')),
+      ..directives.add(Directive.import('package:flutter/widgets.dart')),
   ).accept(emitter);
 
-  File('lib/icapps_icons.dart').writeAsStringSync(DartFormatter().format(fileContent.toString()));
+  File('lib/icapps_icons.dart')
+      .writeAsStringSync(DartFormatter().format(fileContent.toString()));
 }

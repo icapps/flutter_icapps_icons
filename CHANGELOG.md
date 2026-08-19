@@ -1,3 +1,7 @@
+## [1.6.0] - 2026-08-17
+
+* Icons now return `IconData` directly instead of the removed `IcappsIconData` subclass (`IconData` is final in Flutter 3.44+).
+
 ## [1.5.3] - 2025-10-23
 
 * Added new user card icon
